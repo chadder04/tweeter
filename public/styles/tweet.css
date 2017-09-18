@@ -1,0 +1,7 @@
+article.tweet {
+    margin: 1em 2em;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
