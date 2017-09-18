@@ -25,10 +25,15 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- main {
+ .page-container {
    width: 450px;
    min-height: 700px;
    margin: 0 auto;
    padding-top: 140px;
    background-color: #fff;
+ }
+
+ a {
+   text-decoration: none;
+   color: inherit;
  }
