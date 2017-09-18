@@ -1,12 +1,13 @@
 #nav-bar {
     background-color: #00a087;
     color: #e8fdff;
-    width: 100%;
     height: 80px;
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     padding: 0 2em;
+    z-index: 1;
 }
 
 #nav-bar > .logo {
