@@ -42,7 +42,7 @@
   </nav>
 
   <!-- Page-specific (main) content here -->
-  <main class="container">
+  <main class="page-container">
 
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
@@ -55,14 +55,21 @@
 
     <section class="tweet-history">
       <article class="tweet">
-        <header>
-          <a href="#"><img src="images/bird.png" alt="bird" class="tweet-image" /></a>
-          <a href="#">Chad Garrett</a>
-          <a href="#">@chadder04</a>
+        <header class="tweet-header">
+          <a href="#"><img src="images/bird.png" alt="bird" class="user-avatar" /></a>
+          <a href="#" class="user-fullname">Chad Garrett</a>
+          <a href="#" class="user-username">@chadder04</a>
         </header>
-        <p>All your tweet are belong to us!</p>
-        <footer>
-
+        <main class="tweet-body">
+            <p>All your tweet are belong to us! All your tweet are belong to us! All your tweet are belong to us! All your tweet are belong to us!</p>
+        </main>
+        <footer class="tweet-footer">
+          <span>10 days ago</span>
+          <div class="tweet-actions">
+            <a href="#">Link</a>
+            <a href="#">Flag</a>
+            <a href="#">Report</a>
+          </div>
         </footer>
       </article>
     </section>
