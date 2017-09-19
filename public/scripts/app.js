@@ -94,4 +94,25 @@ $(document).ready(function () {
     }
 
     renderTweets(data);
+
+    // Attach a submit handler to the form
+    $( "#tweet-form" ).submit(function( event ) {
+     
+      // Stop form from submitting normally
+      event.preventDefault();
+     
+      // Get some values from elements on the page:
+      var $form = $( this ),
+       term = $form.find( "input[name='s']" ).val(),
+        url = $form.attr( "action" );
+     
+      // Send the data using post
+      var posting = $.post( url, $form.serialize() );
+     
+      // Put the results in a div
+      posting.done(function( data ) {
+        console.log(data);
+      });
+    });
+
 });
