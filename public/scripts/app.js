@@ -16,6 +16,7 @@ $(document).ready(function () {
     }
 
     function createTweetElement(tweetObj) {
+        let tweetDate = moment(tweetObj.created_at).startOf('day').fromNow();
         return safeEncode`
         <article class="tweet">
             <header class="tweet-header">
@@ -27,7 +28,7 @@ $(document).ready(function () {
                 <p>${tweetObj.content.text}</p>
             </main>
             <footer class="tweet-footer">
-            <span>${tweetObj.created_at} days ago</span>
+            <span>${tweetDate}</span>
             <div class="tweet-actions">
                 <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-flag" aria-hidden="true"></i></a>
