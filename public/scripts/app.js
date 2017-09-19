@@ -29,9 +29,10 @@ $(document).ready(function () {
             <footer class="tweet-footer">
             <span>${tweetObj.created_at} days ago</span>
             <div class="tweet-actions">
-                <a href="#">Link</a>
-                <a href="#">Flag</a>
-                <a href="#">Report</a>
+                <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-flag" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i>
+                </a>
             </div>
             </footer>
         </article>`;
@@ -39,19 +40,34 @@ $(document).ready(function () {
 
     function renderTweets(tweets) {
         var allTweets = tweets.map(createTweetElement);
-        $('.tweets-container').append(allTweets);
+        $('.tweets-container').html(allTweets);
     }
 
     function loadTweets() {
         $.get("/tweets", function (data) {
+            data.sort(function(a,b) {
+                return b.created_at - a.created_at;
+                // return (a.created_at > b.created_at) ? 1 : ((b.created_at > a.created_at) ? -1 : 0);
+            });
             renderTweets(data);
         });
     }
 
     function formValidation() {
-        let tweetLength = $('.tweet-text').val().length;
-        if (tweetLength > 140) {
+        let tweet = $('.tweet-text');
+
+        if (tweet.val().length > 140) {
             $('#tweet-form').prepend($('<div></div>').addClass('tweet-error').text('Error! Too many characters!').fadeIn(500).fadeOut(5000));
+            return false;
+        }
+
+        if (tweet.val().length == 0) {
+            $('#tweet-form').prepend($('<div></div>').addClass('tweet-error').text('Error! Must tweet something!').fadeIn(500).fadeOut(5000));
+            return false;
+        }
+
+        if (tweet.val() == " " || tweet.val() == "  ") {
+            $('#tweet-form').prepend($('<div></div>').addClass('tweet-error').text('Error! Must add more than spaces!').fadeIn(500).fadeOut(5000));
             return false;
         }
 
@@ -81,6 +97,11 @@ $(document).ready(function () {
             counter.text(counter.data('max-length'));
         });
 
+    });
+
+    $('.tweet-compose').on('click', function(e) {
+        $('.new-tweet').slideToggle();
+        $('.tweet-text').focus();
     });
 
     loadTweets();
