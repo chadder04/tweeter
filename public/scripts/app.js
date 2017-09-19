@@ -90,7 +90,7 @@ $(document).ready(function () {
             // Set the textarea back to having no value after posting is complete
             $('.tweet-text').val('');
             let counter = $('.counter');
-            counter.text(counter.data('max-length'));
+            counter.text(140);
         });
 
     });
