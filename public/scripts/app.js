@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function () {
+$(function() {
 
     function safeEncode(text, ...replacements) {
         var ret = "";
@@ -30,10 +30,9 @@ $(document).ready(function () {
             <footer class="tweet-footer">
             <span>${tweetDate}</span>
             <div class="tweet-actions">
-                <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-flag" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i>
-                </a>
+                <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
             </div>
             </footer>
         </article>`;
