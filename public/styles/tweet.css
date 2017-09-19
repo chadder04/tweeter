@@ -52,6 +52,10 @@
     visibility: hidden;
 }
 
+.tweet-actions a {
+    margin-right: 5px;
+}
+
 .user-avatar {
     float: left;
     height: 50px;
