@@ -6,7 +6,6 @@ const PORT = 8080;
 const express = require("express");
 const bodyParser = require("body-parser");
 const { MongoClient } = require('mongodb');
-const moment = require("moment");
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
