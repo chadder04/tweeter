@@ -5,6 +5,14 @@
     overflow: hidden;
 }
 
+.tweet-error {
+    margin-bottom: 0.5em;
+    padding: 5px;
+    background-color: #CA1111;
+    border-radius: 3px;
+    color: #fff;
+}
+
 .tweet:hover {
     border: 1px solid #000;
 }
