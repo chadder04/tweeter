@@ -1,0 +1,28 @@
+#nav-bar {
+    background-color: $navbar-background-color;
+    color: $navbar-font-color;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 2em;
+    z-index: 1;
+
+    .brand-logo {
+        float: left;
+        width: 80px;
+        height: 80px;
+    }
+
+    .brand-title {
+        float: left;
+        line-height: 80px;
+        font-size: 2em;
+        margin-left: 10px;
+    }
+
+    .nav-bar-buttons {
+        
+    }
+}
