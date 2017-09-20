@@ -18,14 +18,15 @@
         padding: 5px;
     }
     
-    .counter {
-        float: right;
-        font-style: italic;
-        font-size: 0.75em;
-        padding: 5px;
-    }
-    
-    .too-many-characters {
-        color: $error-background-color;
-    }
+}
+
+.new-tweet-counter {
+    float: right;
+    font-style: italic;
+    font-size: 0.75em;
+    padding: 5px;
+}
+
+.too-many-characters {
+    color: $error-background-color;
 }
