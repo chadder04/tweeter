@@ -1,12 +1,12 @@
-// Variables
+// Variables Import
 @import 'variables';
 
-// Site Styles
+// Site Styles Import
 @import 'nav';
 @import 'new-tweet';
+@import 'tweet';
 
-
-
+// Global Styles
 html {
     box-sizing: border-box;
 }

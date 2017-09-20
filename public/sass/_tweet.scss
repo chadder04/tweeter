@@ -1,0 +1,76 @@
+.tweet {
+    margin: 2em 2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+
+    
+}
+
+.tweet-error {
+    margin-bottom: 0.5em;
+    padding: 5px;
+    background-color: #CA1111;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.tweet:hover {
+    border: 1px solid #000;
+}
+
+.tweet:hover .tweet-header {
+    background-color: #ddd;
+    opacity: 1;
+}
+
+.tweet:hover .tweet-actions {
+    visibility: visible;
+}
+
+.tweet-header {
+    padding: 5px;
+    background-color: #eee;
+    line-height: 50px;
+    height: 60px;
+    opacity: 0.6;
+}
+
+.tweet-body {
+    padding: 10px;
+}
+
+.tweet-footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
+
+.tweet-actions {
+    float: right;
+    visibility: hidden;
+}
+
+.tweet-actions a {
+    margin-right: 5px;
+}
+
+.user-avatar {
+    float: left;
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.user-fullname {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.user-username {
+    float: right;
+}
