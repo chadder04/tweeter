@@ -1,0 +1,31 @@
+.new-tweet {
+    margin: 0 2em;
+    padding: 10px;
+    background-color: $main-background-color;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+
+    h2 {
+        margin: 0 0 1em 0;
+        border: 1px solid #000;
+        border-width: 0 0 1px 0;
+    }
+    
+    textarea {
+        width: 100%;
+        color: rgb(139, 139, 139);
+        padding: 5px;
+    }
+    
+    .counter {
+        float: right;
+        font-style: italic;
+        font-size: 0.75em;
+        padding: 5px;
+    }
+    
+    .too-many-characters {
+        color: $error-background-color;
+    }
+}

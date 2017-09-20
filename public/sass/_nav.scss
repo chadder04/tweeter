@@ -23,6 +23,16 @@
     }
 
     .nav-bar-buttons {
-        
+        float: right;
+    }
+
+    .tweet-compose {
+        height: 50px;
+        margin-top: 1em;
+        opacity: 0.8;
+    }
+    
+    .tweet-compose:hover {
+        opacity: 1;
     }
 }
