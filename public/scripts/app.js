@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(function() {
+$(function () {
 
     function safeEncode(text, ...replacements) {
         var ret = "";
@@ -95,7 +95,7 @@ $(function() {
 
     });
 
-    $('.tweet-compose').on('click', function(e) {
+    $('.tweet-compose').on('click', function (e) {
         $('.new-tweet').slideToggle();
         $('.tweet-text').focus();
     });
