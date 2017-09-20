@@ -13,6 +13,15 @@ module.exports = function makeDataHelpers(db) {
     // Get all tweets in `db`, sorted by newest first
     getTweets: function (callback) {
       db.collection("tweets").find().sort({created_at: -1}).toArray(callback);
+    },
+
+    updateTweet: function(id, liked, callback) {
+      const change = liked ? -1 : 1;
+      const mongoID = require('mongodb').ObjectID(id);
+      db.collection("tweets").updateOne({'_id': mongoID }, {$inc: { likes: change }} , (err, tweet) => {
+        if (err) throw err;
+        callback(null, tweet);
+      });
     }
 
   };
