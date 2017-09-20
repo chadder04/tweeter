@@ -50,20 +50,20 @@ $(function () {
     }
 
     function formValidation() {
-        let tweet = $('.tweet-text');
+        let tweet = $('.new-tweet-text');
 
         if (tweet.val().length > 140) {
-            $('#tweet-form').prepend($('<div></div>').addClass('tweet-error').text('Error! Too many characters!').fadeIn(500).fadeOut(5000));
+            $('#new-tweet-form').prepend($('<div></div>').addClass('tweet-error').text('Error! Too many characters!').fadeIn(500).fadeOut(5000));
             return false;
         }
 
         if (tweet.val().length == 0) {
-            $('#tweet-form').prepend($('<div></div>').addClass('tweet-error').text('Error! Must tweet something!').fadeIn(500).fadeOut(5000));
+            $('#new-tweet-form').prepend($('<div></div>').addClass('tweet-error').text('Error! Must tweet something!').fadeIn(500).fadeOut(5000));
             return false;
         }
 
         if (tweet.val() == " " || tweet.val() == "  ") {
-            $('#tweet-form').prepend($('<div></div>').addClass('tweet-error').text('Error! Must add more than spaces!').fadeIn(500).fadeOut(5000));
+            $('#new-tweet-form').prepend($('<div></div>').addClass('tweet-error').text('Error! Must add more than spaces!').fadeIn(500).fadeOut(5000));
             return false;
         }
 
@@ -71,7 +71,7 @@ $(function () {
     }
 
     // Attach a submit handler to the form
-    $("#tweet-form").submit(function (event) {
+    $("#new-tweet-form").submit(function (event) {
         if (!formValidation()) { return false; }
 
         event.preventDefault();
@@ -88,7 +88,7 @@ $(function () {
             // rerun the loadTweets() function to show new tweets
             loadTweets();
             // Set the textarea back to having no value after posting is complete
-            $('.tweet-text').val('');
+            $('.new-tweet-text').val('');
             let counter = $('.counter');
             counter.text(140);
         });
@@ -97,7 +97,7 @@ $(function () {
 
     $('.tweet-compose').on('click', function (e) {
         $('.new-tweet').slideToggle();
-        $('.tweet-text').focus();
+        $('.new-tweet-text').focus();
     });
 
     loadTweets();
