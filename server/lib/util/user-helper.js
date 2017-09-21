@@ -5,7 +5,8 @@ const chance = new Chance();
 
 const md5 = require('md5');
 
-module.exports = {
+const userHelper = {
+
   generateUserAvatars: (userHandle) => {
     const avatarUrlPrefix = `https://vanillicon.com/${md5(userHandle)}`;
     const avatars = {
@@ -15,7 +16,7 @@ module.exports = {
     }
     return avatars;
   },
-  
+
   generateRandomUser: () => {
     const gender = chance.gender();
     const firstName = chance.first({ gender: gender });
@@ -38,7 +39,7 @@ module.exports = {
     return {
       name: userName,
       handle: userHandle,
-      avatars: generateUserAvatars(userHandle)
+      avatars: userHelper.generateUserAvatars(userHandle)
     };
   },
 
@@ -46,8 +47,10 @@ module.exports = {
     return {
       name: userName,
       handle: userHandle,
-      avatars: generateUserAvatars(userHandle)
+      avatars: userHelper.generateUserAvatars(userHandle)
     };
   }
 
 };
+
+module.exports = userHelper;
