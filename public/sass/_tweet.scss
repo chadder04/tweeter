@@ -38,6 +38,7 @@
 
 .tweet-body {
     padding: 10px;
+    word-wrap: break-word;
 }
 
 .tweet-footer {
@@ -51,11 +52,17 @@
 
 .tweet-actions {
     float: right;
-    visibility: hidden;
+    visibility: visible;;
 }
 
 .tweet-actions a {
     margin-right: 5px;
+}
+
+.tweet-actions button {
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 .user-avatar {
@@ -73,4 +80,8 @@
 
 .user-username {
     float: right;
+}
+
+.tweet-like-number {
+    margin-left: 5px;
 }
