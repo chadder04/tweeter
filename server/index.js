@@ -28,6 +28,10 @@ MongoClient.connect('mongodb://localhost:27017/tweeter', (err, db) => {
   const tweetsDataHelpers = require("./lib/tweets-data-helpers.js")(db);
   const tweetsRoutes = require("./routes/tweets")(tweetsDataHelpers);
   app.use("/tweets", tweetsRoutes);
+
+  const loginRoutes = require("./routes/login")(usersDataHelpers);
+  app.use("/login", loginRoutes);
+
 });
 
 app.listen(PORT, () => {
