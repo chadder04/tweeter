@@ -39,15 +39,17 @@ const userHelper = {
     return {
       name: userName,
       handle: userHandle,
-      avatars: userHelper.generateUserAvatars(userHandle)
+      avatars: userHelper.generateUserAvatars(userHandle),
+      password: md5(123456)
     };
   },
 
-  generateNewUser: (userName, userHandle) => {
+  generateNewUser: (userName, userHandle, userPassword) => {
     return {
       name: userName,
       handle: userHandle,
-      avatars: userHelper.generateUserAvatars(userHandle)
+      avatars: userHelper.generateUserAvatars(userHandle),
+      password: md5(userPassword)
     };
   }
 
