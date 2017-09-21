@@ -10,30 +10,30 @@ $(function () {
         var ret = "";
         for (var i = 0; i < text.length; i++) {
             ret += text[i];
-            ret += $('<span>').text(replacements[i] || "").html();
+            ret += $('<span>').text(replacements[i]).html();
         }
         return $(ret);
     }
 
     function createTweetElement(tweetObj) {
-        let tweetDate = moment(tweetObj.created_at).startOf('day').fromNow();
+        let tweetDate = moment(tweetObj.created_at).fromNow();
         return safeEncode`
-        <article class="tweet">
+        <article class="tweet" data-tweet-id="${tweetObj._id}" data-tweet-liked="false">
             <header class="tweet-header">
-            <a href="#"><img src="${tweetObj.user.avatars.small}" alt="Avatar" class="user-avatar"></a>
-            <a href="#" class="user-fullname">${tweetObj.user.name}</a>
-            <a href="#" class="user-username">${tweetObj.user.handle}</a>
+                <a href="#"><img src="${tweetObj.user.avatars.small}" alt="Avatar" class="user-avatar"></a>
+                <a href="#" class="user-fullname">${tweetObj.user.name}</a>
+                <a href="#" class="user-username">${tweetObj.user.handle}</a>
             </header>
             <main class="tweet-body">
                 <p>${tweetObj.content.text}</p>
             </main>
             <footer class="tweet-footer">
-            <span>${tweetDate}</span>
-            <div class="tweet-actions">
-                <a href="#"><i class="fa fa-flag" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
-            </div>
+                <span>${tweetDate}</span>
+                <div class="tweet-actions">
+                    <button class="tweet-flag"><i class="fa fa-flag" aria-hidden="true"></i></button>
+                    <button class="tweet-retweet"><i class="fa fa-retweet" aria-hidden="true"></i></button>
+                    <button class="tweet-like"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="tweet-like-number">${tweetObj.likes}</span></button>
+                </div>
             </footer>
         </article>`;
     }
@@ -101,5 +101,18 @@ $(function () {
     });
 
     loadTweets();
+
+    $('.tweets-container').on('click', '.tweet-like', function(e) {
+        let tweetData = $(this).closest('.tweet');
+        let tweetID = tweetData.data('tweet-id');
+        let tweetLiked = tweetData.data('tweet-liked');
+        var update = $.ajax({
+            url: "/tweets",
+            method: "PUT",
+            data: { tweetID: tweetID, liked: tweetLiked },
+            dataType: "json"
+          });
+        $(this).toggleClass('too-many-characters');
+    });
 
 });
