@@ -23,7 +23,7 @@ module.exports = function(DataHelpers) {
       return;
     }
 
-    const user = userHelper.generateNewUser(req.body.userName, req.body.userHandle);
+    const user = userHelper.generateNewUser(req.body.userName, req.body.userHandle, req.body.userPassword);
     
     DataHelpers.saveUser(user, (err, result) => {
       if (err) {
