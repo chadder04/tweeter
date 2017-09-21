@@ -16,7 +16,7 @@ module.exports = function makeDataHelpers(db) {
     },
 
     updateTweet: function(id, liked, callback) {
-      const change = liked ? -1 : 1;
+      const change = (liked == 'true') ? -1 : 1;
       const mongoID = require('mongodb').ObjectID(id);
       db.collection("tweets").updateOne({'_id': mongoID }, {$inc: { likes: change }} , (err, tweet) => {
         if (err) throw err;
