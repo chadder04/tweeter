@@ -30,9 +30,9 @@ $(function () {
             <footer class="tweet-footer">
                 <span>${tweetDate}</span>
                 <div class="tweet-actions">
-                    <button class="tweet-flag"><i class="fa fa-flag" aria-hidden="true"></i></button>
-                    <button class="tweet-retweet"><i class="fa fa-retweet" aria-hidden="true"></i></button>
-                    <button class="tweet-like"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="tweet-like-number">${tweetObj.likes}</span></button>
+                    <a href="#" class="tweet-flag"><i class="fa fa-flag" aria-hidden="true"></i></a>
+                    <a href="#" class="tweet-retweet"><i class="fa fa-retweet" aria-hidden="true"></i></a>
+                    <a href="#" class="tweet-like"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="tweet-like-number">${tweetObj.likes}</span></a>
                 </div>
             </footer>
         </article>`;
@@ -102,7 +102,7 @@ $(function () {
 
     loadTweets();
 
-    $('.tweets-container').on('click', '.tweet-like', function(e) {
+    $('.tweets-container').on('click', '.tweet-like', function (e) {
         let $tweetData = $(this).closest('.tweet');
         let tweetID = $tweetData.data('tweet-id');
         let tweetLiked = $tweetData.attr('data-tweet-liked') === 'true';
@@ -115,23 +115,22 @@ $(function () {
                 $tweetData.attr('data-tweet-liked', !tweetLiked);
                 console.log(tweetLiked + ' // ' + $tweetData.attr('data-tweet-liked'));;
             }
-          });
-          $tweetData.attr('data-tweet-liked', !tweetLiked);
-          console.log(tweetLiked + ' // ' + $tweetData.attr('data-tweet-liked'));;
+        });
+        $tweetData.attr('data-tweet-liked', !tweetLiked);
         $(this).toggleClass('too-many-characters');
     });
 
-    $('.tweet-login').on('click', function(e) {
+    $('.tweet-login').on('click', function (e) {
         $('.login-container').slideToggle();
     });
 
-    $('#login-user-form').on('submit', function(e) {
+    $('#login-user-form').on('submit', function (e) {
         e.preventDefault();
-        
+
         let $form = $(this);
         let userHandle = $form.find("input[name='userHandle']").val();
         let userPassword = $form.find("input[name='userPassword']").val();
-        
+
         var login = $.ajax({
             url: "/login",
             method: "POST",
@@ -140,25 +139,31 @@ $(function () {
             success(data) {
                 showLoggedIn();
                 $('.login-container').slideToggle();
+                $('.logged-in-details').text('@' + userHandle);
             },
             error(data) {
                 showLoggedOut();
+                console.log(data);
             }
-          });
+        });
     });
 
-    $('.tweet-register').on('click', function(e) {
+    $('.tweet-register').on('click', function (e) {
         $('.registration-container').slideToggle();
     });
 
     function showLoggedIn() {
         $('.tweet-login').addClass('hidden');
+        $('.tweet-logout').removeClass('hidden');
+        $('.logged-in-details').removeClass('hidden');
         $('.tweet-register').addClass('hidden');
         $('.tweet-compose').removeClass('hidden');
     }
 
     function showLoggedOut() {
         $('.tweet-login').removeClass('hidden');
+        $('.tweet-logout').addClass('hidden');
+        $('.logged-in-details').empty().addClass('hidden');
         $('.tweet-register').removeClass('hidden');
         $('.tweet-compose').addClass('hidden');
     }
@@ -170,12 +175,27 @@ $(function () {
             dataType: "json",
             success(data) {
                 showLoggedIn();
+                $('.logged-in-details').text(data.user.handle);
             },
             error(data) {
                 showLoggedOut();
             }
-          });
+        });
     }
+
+    function userLogout() {
+        let logout = $.ajax({
+            url: "/login/logout",
+            method: "GET",
+            dataType: "json"
+        });
+        showLoggedOut();
+    }
+
+    $('.tweet-logout').on('click', function (e) {
+        userLogout();
+    });
+
 
     validateUser();
 
