@@ -1,9 +1,10 @@
-.login-container {
+.registration-container {
     margin: 2em;
     padding: 20px;
     background-color: $new-tweet-background-color;
     border: 5px solid #ccc;
     border-radius: 5px;
+    display: none;
 
     h2 {
         margin: 0 0 1em 0;

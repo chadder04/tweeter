@@ -25,6 +25,20 @@
     .nav-bar-buttons {
         float: right;
     }
+    
+    .nav-bar-buttons button {
+        height: 50px;
+        margin-top: 1em;
+        opacity: 0.8;
+        border: 0;
+        border-radius: 5px;
+        padding: 0 15px;
+    }
+
+    .nav-bar-buttons button:hover {
+        transform: scale(1.10);
+        opacity: 1;
+    }
 
     .tweet-compose {
         height: 50px;
@@ -32,7 +46,4 @@
         opacity: 0.8;
     }
     
-    .tweet-compose:hover {
-        opacity: 1;
-    }
 }
