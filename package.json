@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/index.js",
-    "local": "./node_modules/.bin/node-sass public/sass/main.scss public/styles/main.css && ./node_modules/.bin/nodemon --watch server -e js server/index.js",
+    "local": "./node_modules/.bin/nodemon --watch server -e js server/index.js",
     "sass": "./node_modules/.bin/node-sass public/sass/main.scss public/styles/main.css"
   },
   "author": "Lighthouse Labs",
@@ -14,11 +14,13 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "chance": "^1.0.2",
+    "cookie-session": "^1.3.1",
     "express": "^4.13.4",
     "md5": "^2.1.0",
     "moment": "^2.18.1",
     "mongodb": "^2.2.31",
-    "node-sass": "^4.5.3"
+    "node-sass": "^4.5.3",
+    "node-sass-middleware": "^0.11.0"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"
