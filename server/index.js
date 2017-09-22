@@ -5,8 +5,23 @@
 const PORT = 8080;
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieSession = require('cookie-session');
 const { MongoClient } = require('mongodb');
+const sassMiddleware = require('node-sass-middleware');
 const app = express();
+
+// Setup the SASS middleware
+app.use(sassMiddleware({
+  src: __dirname + '/sass/',
+  response: false,
+  dest: __dirname + '/../public/'
+}));
+
+// Setup the cookie-session middleware
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key']
+}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
