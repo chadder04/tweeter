@@ -47,7 +47,7 @@ const userHelper = {
   generateNewUser: (userName, userHandle, userPassword) => {
     return {
       name: userName,
-      handle: userHandle,
+      handle: "@" + userHandle,
       avatars: userHelper.generateUserAvatars(userHandle),
       password: md5(userPassword)
     };
