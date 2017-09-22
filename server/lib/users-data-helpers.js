@@ -17,7 +17,7 @@ module.exports = function userDataHelpers(db) {
     },
 
     verifyUserLogin: function (userHandle, userPassword, callback) {
-      db.collection("users").find({handle: userHandle, password: md5(userPassword)}).toArray((err, documents) => {
+      db.collection("users").find({handle: '@' + userHandle, password: md5(userPassword)}).toArray((err, documents) => {
 
         if (documents.length === 0) {
           const err = { message: 'No user found using those credentials' }
