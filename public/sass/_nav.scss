@@ -11,15 +11,13 @@
     border-bottom: 5px solid #ccc;
 
     .brand-logo {
-        float: left;
-        width: 80px;
-        height: 80px;
+        transform: scale(-1, 1);
     }
 
     .brand-title {
         float: left;
         line-height: 80px;
-        font-size: 2em;
+        font-size: 2.5em;
         margin-left: 10px;
         font-weight: bold;
     }
