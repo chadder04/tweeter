@@ -8,6 +8,7 @@
     right: 0;
     padding: 0 2em;
     z-index: 1;
+    border-bottom: 5px solid #ccc;
 
     .brand-logo {
         float: left;
@@ -20,6 +21,7 @@
         line-height: 80px;
         font-size: 2em;
         margin-left: 10px;
+        font-weight: bold;
     }
 
     .nav-bar-buttons {
