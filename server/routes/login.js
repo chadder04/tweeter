@@ -34,7 +34,7 @@ module.exports = function(DataHelpers) {
 
   loginRoutes.get("/logout", function(req, res) {
     req.session = null;
-    res.redirect("/");
+    res.status(201).send();
   });
 
   return loginRoutes;
