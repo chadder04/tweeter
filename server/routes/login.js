@@ -8,7 +8,11 @@ const loginRoutes  = express.Router();
 module.exports = function(DataHelpers) {
 
   loginRoutes.get("/", function(req, res) {
-    res.send("I'm gunna GET-IIIT");
+    if (!req.session.user) {
+      res.status(400).json({ error: 'invalid request: user not logged in'});
+    } else {
+      res.status(201).send(req.session);
+    }
   });
 
   loginRoutes.post("/", function(req, res) {
@@ -21,13 +25,16 @@ module.exports = function(DataHelpers) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.status(201).send("Login Success!");
+        let user = result[0];
+        req.session.user = user;
+        res.status(201).send(req.session);
       }
     })
   });
 
-  loginRoutes.put("/", function(req, res) {
-    
+  loginRoutes.get("/logout", function(req, res) {
+    req.session = null;
+    res.redirect("/");
   });
 
   return loginRoutes;
