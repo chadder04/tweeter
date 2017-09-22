@@ -4,6 +4,16 @@ Tweeter is a simple, single-page Twitter clone.
 
 Built using HTML, CSS, JS, jQuery, and AJAX for front-end, and Node, Express, SASS and MongoDB for back-end.
 
+## Final Product
+
+!["Screenshot of Login Form"](https://github.com/chadder04/TinyApp/blob/master/docs/login-page.png)
+
+!["Screenshot of Registration Form"](https://github.com/chadder04/TinyApp/blob/master/docs/login-page-error.png)
+
+!["Screenshot of Compose Tweets"](https://github.com/chadder04/TinyApp/blob/master/docs/urls-page.png)
+
+!["Screenshot of Tweets"](https://github.com/chadder04/TinyApp/blob/master/docs/edit-page.png)
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
@@ -15,5 +25,11 @@ Built using HTML, CSS, JS, jQuery, and AJAX for front-end, and Node, Express, SA
 
 - Express
 - Node 5.10.x or above
-- node-sass
+- Node-SASS
+- Node-SASS Middleware
 - MongoDB
+- Body Parser
+- Chance
+- Cookie-Session
+- MD5
+- Moment JS
