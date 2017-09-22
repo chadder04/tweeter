@@ -89,7 +89,7 @@ $(function () {
             loadTweets();
             // Set the textarea back to having no value after posting is complete
             $('.new-tweet-text').val('');
-            let counter = $('.counter');
+            let counter = $('.new-tweet-counter');
             counter.text(140);
         });
 
@@ -103,16 +103,80 @@ $(function () {
     loadTweets();
 
     $('.tweets-container').on('click', '.tweet-like', function(e) {
-        let tweetData = $(this).closest('.tweet');
-        let tweetID = tweetData.data('tweet-id');
-        let tweetLiked = tweetData.data('tweet-liked');
+        let $tweetData = $(this).closest('.tweet');
+        let tweetID = $tweetData.data('tweet-id');
+        let tweetLiked = $tweetData.attr('data-tweet-liked') === 'true';
         var update = $.ajax({
             url: "/tweets",
             method: "PUT",
             data: { tweetID: tweetID, liked: tweetLiked },
-            dataType: "json"
+            dataType: "json",
+            success(data) {
+                $tweetData.attr('data-tweet-liked', !tweetLiked);
+                console.log(tweetLiked + ' // ' + $tweetData.attr('data-tweet-liked'));;
+            }
           });
+          $tweetData.attr('data-tweet-liked', !tweetLiked);
+          console.log(tweetLiked + ' // ' + $tweetData.attr('data-tweet-liked'));;
         $(this).toggleClass('too-many-characters');
     });
+
+    $('.tweet-login').on('click', function(e) {
+        $('.login-container').slideToggle();
+    });
+
+    $('#login-user-form').on('submit', function(e) {
+        e.preventDefault();
+        
+        let $form = $(this);
+        let userHandle = $form.find("input[name='userHandle']").val();
+        let userPassword = $form.find("input[name='userPassword']").val();
+        
+        var login = $.ajax({
+            url: "/login",
+            method: "POST",
+            data: { userHandle: userHandle, userPassword: userPassword },
+            dataType: "json",
+            success(data) {
+                showLoggedIn();
+                $('.login-container').slideToggle();
+            },
+            error(data) {
+                showLoggedOut();
+            }
+          });
+    });
+
+    $('.tweet-register').on('click', function(e) {
+        $('.registration-container').slideToggle();
+    });
+
+    function showLoggedIn() {
+        $('.tweet-login').addClass('hidden');
+        $('.tweet-register').addClass('hidden');
+        $('.tweet-compose').removeClass('hidden');
+    }
+
+    function showLoggedOut() {
+        $('.tweet-login').removeClass('hidden');
+        $('.tweet-register').removeClass('hidden');
+        $('.tweet-compose').addClass('hidden');
+    }
+
+    function validateUser() {
+        let validate = $.ajax({
+            url: "/login",
+            method: "GET",
+            dataType: "json",
+            success(data) {
+                showLoggedIn();
+            },
+            error(data) {
+                showLoggedOut();
+            }
+          });
+    }
+
+    validateUser();
 
 });
