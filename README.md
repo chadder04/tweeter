@@ -6,13 +6,13 @@ Built using HTML, CSS, JS, jQuery, and AJAX for front-end, and Node, Express, SA
 
 ## Final Product
 
-!["Screenshot of Login Form"](https://github.com/chadder04/TinyApp/blob/master/docs/login-page.png)
+!["Screenshot of Login Form"](https://github.com/chadder04/tweeter/blob/master/docs/login-form.png)
 
-!["Screenshot of Registration Form"](https://github.com/chadder04/TinyApp/blob/master/docs/login-page-error.png)
+!["Screenshot of Registration Form"](https://github.com/chadder04/tweeter/blob/master/docs/register-form.png)
 
-!["Screenshot of Compose Tweets"](https://github.com/chadder04/TinyApp/blob/master/docs/urls-page.png)
+!["Screenshot of Compose Tweets"](https://github.com/chadder04/tweeter/blob/master/docs/compose-tweet.png)
 
-!["Screenshot of Tweets"](https://github.com/chadder04/TinyApp/blob/master/docs/edit-page.png)
+!["Screenshot of Tweets"](https://github.com/chadder04/tweeter/blob/master/docs/view-tweets.png)
 
 ## Getting Started
 
