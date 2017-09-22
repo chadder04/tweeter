@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
 
   <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="main.css" type="text/css" />
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/vendor/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -37,7 +37,11 @@
   <!-- Top nav bar (fixed) -->
   <nav id="nav-bar">
     <span class="brand-title"><i class="fa fa-twitter brand-image" aria-hidden="true"></i> Tweeter</span>
-    <span class="nav-bar-buttons"><button name="compose" class="tweet-compose"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Compose</button></span>
+    <span class="nav-bar-buttons">
+      <button name="login" class="tweet-login"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Login</button>
+      <button name="register" class="tweet-register"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Register</button>
+      <button name="compose" class="tweet-compose hidden"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Compose</button>
+    </span>
   </nav>
 
   <!-- Page-specific (main) content here -->
