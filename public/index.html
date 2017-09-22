@@ -33,14 +33,35 @@
 
   <!-- Top nav bar (fixed) -->
   <nav id="nav-bar">
-    <img class="brand-logo" src="/images/bird.png">
-    <span class="brand-title">Tweeter</span>
+    <span class="brand-title"><i class="fa fa-twitter brand-image" aria-hidden="true"></i> Tweeter</span>
     <span class="nav-bar-buttons"><button name="compose" class="tweet-compose"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Compose</button></span>
   </nav>
 
   <!-- Page-specific (main) content here -->
   <main class="page-container">
 
+    <!-- Login Form -->
+    <section class="login-container">
+        <h2>Login to your Tweeter account!</h2>
+        <form method="post" action="/login" id="login-user-form">
+            <input type="text" name="userHandle" placeholder="Username">
+            <input type="password" name="userPassword" placeholder="Password">
+            <input type="submit" name="submit" value="Login">
+        </form>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="registration-container">
+        <h2>Register Now for Tweeter!</h2>
+        <form method="post" action="/users" id="register-user-form">
+            <input type="text" name="userName" placeholder="Full Name">
+            <input type="text" name="userHandle" placeholder="Username">
+            <input type="password" name="userPassword" placeholder="Password">
+            <input type="submit" name="submit" value="Register">
+        </form>
+    </section>
+
+    <!-- Compose New Tweet Form -->
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form method="post" action="/tweets" id="new-tweet-form">
