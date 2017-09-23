@@ -33,6 +33,7 @@
     line-height: 50px;
     height: 60px;
     opacity: 0.6;
+    overflow: hidden
 }
 
 .tweet-body {
@@ -51,7 +52,7 @@
 
 .tweet-actions {
     float: right;
-    visibility: visible;;
+    visibility: hidden;
 }
 
 .tweet-actions a {
@@ -83,4 +84,8 @@
 
 .tweet-like-number {
     margin-left: 5px;
+}
+
+.currently-liked {
+    color: $new-tweet-background-color;
 }
