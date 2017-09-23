@@ -106,18 +106,20 @@ $(function () {
         let $tweetData = $(this).closest('.tweet');
         let tweetID = $tweetData.data('tweet-id');
         let tweetLiked = $tweetData.attr('data-tweet-liked') === 'true';
+        let tweetLikeNumber = $tweetData.find('.tweet-like-number');
+        if (tweetLiked === true) {
+            tweetLikeNumber.text(Number(tweetLikeNumber.text()) - 1);
+        } else {
+            tweetLikeNumber.text(Number(tweetLikeNumber.text()) + 1);
+        }
         var update = $.ajax({
             url: "/tweets",
             method: "PUT",
             data: { tweetID: tweetID, liked: tweetLiked },
-            dataType: "json",
-            success(data) {
-                $tweetData.attr('data-tweet-liked', !tweetLiked);
-                console.log(tweetLiked + ' // ' + $tweetData.attr('data-tweet-liked'));;
-            }
+            dataType: "json"
         });
         $tweetData.attr('data-tweet-liked', !tweetLiked);
-        $(this).toggleClass('too-many-characters');
+        $(this).toggleClass('currently-liked');
     });
 
     $('.tweet-login').on('click', function (e) {
