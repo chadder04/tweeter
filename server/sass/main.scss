@@ -2,42 +2,10 @@
 @import 'variables';
 
 // Site Styles Import
+@import 'layout';
 @import 'nav';
 @import 'new-tweet';
 @import 'tweet';
 @import 'register';
 @import 'login';
-
-// Global Styles
-html {
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-body {
-    margin: 0;
-    color: $main-text-color;
-    background-color: $main-background-color;
-    font-family: $main-font-family;
-}
-
-a {
-   text-decoration: none;
-   color: inherit;
-}
-
-.page-container {
-    width: 600px;
-    min-height: 700px;
-    margin: 0 auto;
-    padding-top: 100px;
-    padding-bottom: 20px;
-    background-color: $page-container-background-color;
-}
-
-.hidden {
-    display: none;
-}
+@import 'mobile';
