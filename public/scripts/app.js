@@ -145,6 +145,7 @@ $(function () {
             },
             error(data) {
                 showLoggedOut();
+                $form.before($('<div></div>').addClass('tweet-error').text('Error! ' + data.responseJSON.error).fadeIn(500).fadeOut(7500));
                 console.log(data);
             }
         });
@@ -170,6 +171,14 @@ $(function () {
         $('.tweet-compose').addClass('hidden');
     }
 
+    function disableLikes() {
+        $('.tweets-container').find('.tweets-like').addClass('currently-liked').css('pointer-events', 'none');
+    }
+
+    function enableLikes() {
+        $('.tweet-like').removeClass('currently-liked').css('pointer-events', 'auto');
+    }
+
     function validateUser() {
         let validate = $.ajax({
             url: "/login",
@@ -181,6 +190,7 @@ $(function () {
             },
             error(data) {
                 showLoggedOut();
+                disableLikes();
             }
         });
     }
