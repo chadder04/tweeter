@@ -29,7 +29,8 @@ module.exports = function(DataHelpers) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.status(201).send();
+        req.session.user = user;        
+        res.status(201).redirect('/');
       }
     });
   });
